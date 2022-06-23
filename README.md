@@ -156,6 +156,8 @@ print(repr(BetterAmpVolume.METAL))
 Pull requests are always welcome! For any additional features or major changes,
 please open an issue for discussion.
 
+This is my first public project, so any comments, suggestions, and feedback are also welcome!
+
 # Acknowledgements
 Thanks to StackOverflow users `Ethan Furman`, `jsbueno` and `l4mpi` for
 inspiration, help and some code examples (see 
