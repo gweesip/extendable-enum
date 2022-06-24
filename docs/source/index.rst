@@ -19,11 +19,3 @@ Welcome to extendable-enum's documentation!
    postmixin
    copyenum
    roadmap
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

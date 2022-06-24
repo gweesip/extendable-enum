@@ -15,6 +15,10 @@ members as an existing enum. New enum can optionally define additional members.
 5. `AutoNullEnum` - A base class for enum classes using the auto null feature. Contains convenience
 functions for dealing with the auto null member.
 
+# Documentation
+
+Full documentation for the package can be found on [read the docs](https://extendable-enum.readthedocs.io/en/latest/)
+
 # Installation
 
 Install with pip:
