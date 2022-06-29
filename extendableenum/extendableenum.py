@@ -153,19 +153,34 @@ def auto_null_member(the_enum):
         In cases where the auto-null is compared to itself, 'less than' comparisons return
         ```True``` and 'greater than` comparisons return ```False```.
         """
-        if func.__name__ in ('__lt__', '__le__'):
-            null_self_return = True
-            null_other_return = False
-        if func.__name__ in ('__gt__', '__ge__'):
-            null_self_return = False
-            null_other_return = True
+
+        # The following is temporarily removed for the quick and easy fix of moving the conditionals inside
+        # new_compare_fn. Will investigate the use of partials or other method to handle this to make the code
+        # a little easier to read and follow. The intent of this was to have the values for self and other null
+        # cases separate from the main logic to make it obvious and easier to configure.
+        # if func.__name__ in ('__lt__', '__le__'):
+        #     null_self_return = True
+        #     null_other_return = False
+        # if func.__name__ in ('__gt__', '__ge__'):
+        #     null_self_return = False
+        #     null_other_return = True
 
         def new_compare_fn(self, other):
             if self.__class__ is other.__class__:
                 if self is self.__class__(_auto_null_member_value):
-                    return null_self_return
+                    # self_null_return
+                    if func.__name__ in ('__lt__', '__le__'):
+                        return True
+                    # __gt__ or __ge__, self_null_return
+                    else:
+                        return False
                 elif other is other.__class__(_auto_null_member_value):
-                    return null_other_return
+                    # null_other_return
+                    if func.__name__ in ('__lt__', '__le__'):
+                        return False
+                    # __gt__ or __ge__, null_other_return
+                    else:
+                        return True
             # fall through case defers to originally defined function
             return func(self, other)
 

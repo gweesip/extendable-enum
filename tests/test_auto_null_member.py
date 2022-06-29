@@ -1,7 +1,7 @@
 import unittest
 import extendableenum
-from extendableenum import auto_null_member, _auto_null_member_value, _auto_null_member_name, AutoNullEnum, \
-    set_auto_null
+from extendableenum.extendableenum import auto_null_member, _auto_null_member_value, _auto_null_member_name, \
+    AutoNullEnum, set_auto_null
 from enum import Enum
 
 
@@ -119,6 +119,7 @@ class TestAutoNullMember(unittest.TestCase):
         self.assertRaises(TypeError, invalid_name)
 
         # restore module level variables for other tests...
+        extendableenum.set_auto_null('NULL', None)
         extendableenum._auto_null_member_name = 'NULL'
         extendableenum._auto_null_member_value = None
 
